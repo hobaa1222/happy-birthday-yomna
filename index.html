@@ -8,7 +8,7 @@
 <meta property="og:description" content="A little wish, just for you. Open your birthday surprise.">
 <meta property="og:type" content="website">
 <link rel="icon" href="./heart.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=photo118">
 </head>
 <body>
 <audio id="birthdaySong" preload="auto" src="birthday-song.mp3#t=28" aria-hidden="true"></audio>
@@ -52,9 +52,20 @@
   <div class="wish-area"><div class="candles" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i></div><button id="wish" class="wish-button">Make a wish <span>✧</span></button><p id="wishNote" aria-live="polite">Close your eyes. Make it a beautiful one.</p></div>
   <button id="replay" class="replay-button" aria-label="Replay the birthday surprise">↺ &nbsp; A little magic, again</button>
  </section>
+ <section id="photoSurprise" class="photo-surprise" aria-labelledby="photoTitle" aria-hidden="true" aria-live="polite" inert>
+  <p class="eyebrow">A LITTLE MOMENT TO KEEP</p>
+  <h2 id="photoTitle">A memory, <em>just for you.</em></h2>
+  <figure class="memory-frame">
+   <svg class="memory-flower memory-flower-left" aria-hidden="true"><use href="#flower"/></svg>
+   <img src="birthday-memory.jpg" width="1200" height="1600" alt="A special birthday memory" loading="eager" decoding="async">
+   <figcaption lang="ar" dir="rtl">أحلى اللحظات بتفضل معانا ♡</figcaption>
+   <svg class="memory-flower memory-flower-right" aria-hidden="true"><use href="#rose"/></svg>
+  </figure>
+  <button id="photoReplay" class="replay-button" aria-label="Replay the birthday surprise from the beginning">↺ &nbsp; A little magic, again</button>
+ </section>
  <div id="garden" class="garden" aria-hidden="true"></div>
  <svg class="butterfly butterfly-one" aria-hidden="true"><use href="#butterfly"/></svg><svg class="butterfly butterfly-two" aria-hidden="true"><use href="#butterfly"/></svg>
 </main>
 <footer>MADE OF LITTLE WISHES &amp; FLOWERS <span>✧</span></footer>
-<script src="app.js?v=song28"></script>
+<script src="app.js?v=photo118"></script>
 </body></html>
