@@ -5,7 +5,7 @@ const garden=document.querySelector('#garden');
 const plants=[[-2,12,0,310],[5,-18,1,360],[12,6,0,270],[20,-14,1,240],[29,18,0,190],[68,-12,0,195],[76,17,1,240],[84,-7,0,300],[92,18,1,370],[99,-20,0,300]];
 plants.forEach(([x,a,kind,h],i)=>{const el=document.createElement('div');el.className='plant';el.style.cssText=`left:calc(${x}% - 90px);height:${h}px;--angle:${a}deg;transition-delay:${i*.06}s`;el.innerHTML=`<svg viewBox="0 0 180 350"><path class="stem" d="M90 350Q50 230 90 83"/><use href="#leaf" x="37" y="194" width="49" height="77" transform="rotate(-35 62 230)"/><use href="#leaf" x="82" y="153" width="44" height="72" transform="rotate(40 100 195)"/><g class="bloom-head"><use href="#${kind?'rose':'flower'}" x="27" y="20" width="126" height="126"/></g><path d="M75 280Q24 215 28 170" class="stem"/><use href="#flower" x="0" y="139" width="56" height="56" opacity=".8"/></svg>`;garden.append(el)});
 let opened=false,wished=false,resumeOnVisible=false,playAttempt=0;
-const photoPanel=document.querySelector('#photoSurprise'),photoDelayMs=118000;
+const photoPanel=document.querySelector('#photoSurprise'),photoDelayMs=58000;
 let photoTimer=null,photoDeadline=0;
 function showPhoto(){if(!opened||!photoDeadline||Date.now()<photoDeadline)return;clearTimeout(photoTimer);photoTimer=null;photoPanel.inert=false;photoPanel.setAttribute('aria-hidden','false');reveal.inert=true;reveal.setAttribute('aria-hidden','true');body.classList.add('photo-revealed');burst(innerWidth/2,innerHeight*.4,45);if(reveal.contains(document.activeElement))document.querySelector('#photoReplay').focus({preventScroll:true})}
 function startPhotoCountdown(){clearTimeout(photoTimer);photoDeadline=Date.now()+photoDelayMs;photoTimer=setTimeout(showPhoto,photoDelayMs)}
