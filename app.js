@@ -7,7 +7,7 @@ plants.forEach(([x,a,kind,h],i)=>{const el=document.createElement('div');el.clas
 let opened=false,wished=false,resumeOnVisible=false,playAttempt=0;
 const photoPanel=document.querySelector('#photoSurprise'),photoDelayMs=58000;
 let photoTimer=null,photoDeadline=0;
-function showPhoto(){if(!opened||!photoDeadline||Date.now()<photoDeadline)return;clearTimeout(photoTimer);photoTimer=null;photoPanel.inert=false;photoPanel.setAttribute('aria-hidden','false');reveal.inert=true;reveal.setAttribute('aria-hidden','true');body.classList.add('photo-revealed');burst(innerWidth/2,innerHeight*.4,45);if(reveal.contains(document.activeElement))document.querySelector('#photoReplay').focus({preventScroll:true})}
+function showPhoto(){if(!opened||!photoDeadline||Date.now()<photoDeadline)return;clearTimeout(photoTimer);photoTimer=null;photoPanel.inert=false;photoPanel.setAttribute('aria-hidden','false');reveal.inert=true;reveal.setAttribute('aria-hidden','true');body.classList.add('photo-revealed');window.scrollTo({top:0,behavior:'instant'});burst(innerWidth/2,innerHeight*.4,45);if(reveal.contains(document.activeElement))document.querySelector('#photoReplay').focus({preventScroll:true})}
 function startPhotoCountdown(){clearTimeout(photoTimer);photoDeadline=Date.now()+photoDelayMs;photoTimer=setTimeout(showPhoto,photoDelayMs)}
 function resetPhoto(){clearTimeout(photoTimer);photoTimer=null;photoDeadline=0;body.classList.remove('photo-revealed');photoPanel.inert=true;photoPanel.setAttribute('aria-hidden','true');reveal.inert=false}
 const song=document.querySelector('#birthdaySong'),songStart=28;
